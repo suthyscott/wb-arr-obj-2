@@ -63,7 +63,7 @@ const populations = [8175133, 3792621, 2695598, 2100263];
 */
 
 //Code Here
-let totalPopulation = populations.reduce()
+let totalPopulation = populations.reduce((a, e) => a + e)
 
 ////////// PROBLEM 4 //////////
 
@@ -105,7 +105,7 @@ const monstersInYourPocket = [
 */
 
 //Code Here
-let myStrongest; // = monstersInYourPocket.filter(/* Provide Your Callback Here */)
+let myStrongest = monstersInYourPocket.filter(pokemon => pokemon.CP > 200)
 
 ////////// PROBLEM 5 //////////
 
@@ -128,7 +128,7 @@ const orders = [
   Use a higher order method to get all the order totals after adding in the sales tax (given to you as a tax rate, hint: you'll need to do some multiplication). Your answer should be an array of numbers, one total for each order.
 */
 
-let orderTotals; // Code here
+let orderTotals = orders.map(order => order.price * (1 + order.tax))
 
 ////////// PROBLEM 6 //////////
 
@@ -161,4 +161,6 @@ const purchases = [
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal; //Code Here
+let bobsTotal = purchases.reduce((acc, purchase) => {
+  return purchase.owner === 'Bob' ? acc + purchase.price : acc
+}, 0)
